@@ -3,4 +3,9 @@ const nextConfig = {
   reactStrictMode: true,
 }
 
-module.exports = nextConfig
+module.exports = {
+  webpack5: true,
+  images: {
+    domains: ['assets.coingecko.com'],
+  },
+};
