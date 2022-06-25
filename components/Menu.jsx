@@ -17,7 +17,7 @@ const Menu = () => {
 
       return (
         <div>
-          <nav className=" w-screen z-10 bg-green-100 dark:bg-gray-900 border-b-4 border-white dark:border-gray-400" style={{ position: "-webkit-sticky", position: "sticky", top: '0'}}>
+          <nav className=" w-screen z-10 bg-green-100 dark:bg-gray-800 border-b-4 border-white dark:border-gray-400" style={{ position: "-webkit-sticky", position: "sticky", top: '0'}}>
             <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
               <div className="flex justify-between items-center px-2 h-20">
                 <div className="flex- items-center">
@@ -27,8 +27,8 @@ const Menu = () => {
                   </div>
                 </div>
                 <div className="flex">
-                <SearchIcon className="md:text-4xl mr-4 h-7 cursor-pointer text-green-600 hover:text-green-800 dark:dark-color dark:hover:text-gray-400" onClick={() => router.push("/search")}/>
-                <NotificationsIcon className="text-4xl text-green-600 hover:text-green-800 dark:dark-color dark:hover:text-gray-400 mr-4 h-7 cursor-pointer" onClick={() => router.push("/search")}/>
+                <SearchIcon className="md:text-4xl mr-2 text-green-600 hover:text-green-800 dark:text-gray-200 dark:hover:text-gray-400 h-7 cursor-pointer" onClick={() => router.push("/search")}/>
+                <NotificationsIcon className="text-4xl mr-2 text-green-600 hover:text-green-800 dark:text-gray-200 dark:hover:text-gray-400 h-7 cursor-pointer" onClick={() => router.push("/search")}/>
                 <Select
                   variant="outlined"
                   labelId="demo-simple-select-label"
@@ -38,9 +38,6 @@ const Menu = () => {
                   style={{ width: 85, height: 30 }}
                   onChange={(e) => setCurrency(e.target.value)}
                 >
-                  {/* <MenuItem value={"USD"}>USD</MenuItem>
-                  <MenuItem value={"INR"}>INR</MenuItem> 
-                  <MenuItem value={"NGN"}>NGN</MenuItem> */}
                   <MenuItem value="USD">USD</MenuItem>
                   <MenuItem value="AED">AED</MenuItem>
                   <MenuItem value="ARS">ARS</MenuItem>
@@ -95,7 +92,7 @@ const Menu = () => {
                   <MenuItem value="UYU">UYU</MenuItem>
                   <MenuItem value="ZAR">ZAR</MenuItem> 
                 </Select>
-                {colorTheme === "light"? (<LightModeIcon className="cursor-pointer text-green-600 hover:text-green-800 h-7 dark:dark-color dark:hover:text-gray-400 mx-4 " onClick={() => setTheme("light")} />) : (<DarkModeIcon className="cursor-pointer text-green-600 hover:text-green-800 dark:dark-color h-7 mx-4 dark:hover:text-gray-400" onClick={() => setTheme("dark")}/>)}
+                {colorTheme === "light"? (<LightModeIcon className="cursor-pointer text-green-600 hover:text-green-800 h-7 dark:text-white dark:hover:text-gray-400 mx-4 " onClick={() => setTheme("light")} />) : (<DarkModeIcon className="cursor-pointer text-green-600 hover:text-green-800 dark:dark-color h-7 mx-4 dark:hover:text-gray-400" onClick={() => setTheme("dark")}/>)}
                 
               </div>
               </div>

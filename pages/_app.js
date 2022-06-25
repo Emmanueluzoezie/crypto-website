@@ -1,8 +1,8 @@
 import '../styles/globals.css'  
 import Head from "next/head"
-
+import { Provider } from "react-redux"
 import {CryptoContext} from "../context/cryptoContext"
-
+import { store } from '../app/store'
  
 
 function MyApp({ Component, pageProps }) {
@@ -15,9 +15,11 @@ function MyApp({ Component, pageProps }) {
 
 
 
-        <CryptoContext>
-          <Component {...pageProps} />
-         </CryptoContext> 
+        <Provider store={store}>
+          <CryptoContext>
+            <Component {...pageProps} />
+          </CryptoContext> 
+        </Provider>
     
     </>
     )

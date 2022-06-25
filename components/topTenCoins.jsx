@@ -27,7 +27,7 @@ function TopTenCoins() {
                  <h1>Top 10 Cryptocurrencies</h1>
                  <a className="text-sm sm:text-xl cursor-pointer" onClick={() =>    router.push("/cryptoListPage")}>See All</a>
              </div> 
-             <div className="flex hide space-x-3 md:space-x-7 w-inherit">
+             <div className="flex hide space-x-3 md:space-x-7 w-inherit px-1">
                {data? (data?.splice(0, 10).map((crypto) =>  (
                       <Crypto data={data} 
                       key={crypto.id}
