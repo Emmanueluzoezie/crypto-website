@@ -1,14 +1,10 @@
 import { Avatar } from '@mui/material'
-import Image from "next/image" 
-import Link from "next/link"
-import { useState } from 'react';
 import NumberFormat from 'react-number-format';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import { CryptoState } from "../context/cryptoContext"
 import { useContext } from "react";
-import { useRouter } from 'next/router'
 import { useDispatch } from 'react-redux';
 import { addToBasket } from '../slices/basketSlice';
 
@@ -94,7 +90,7 @@ function FullCryptoListComponent ({name, id, rank, allTimeHigh, marketCapDaily, 
                                 <div className="hidden lg:flex items-center font-bold lg:w-[40%]">
                                     <div className="w-full flex">
                                         <NumberFormat className="text-[12px] w-[58%] ml-2 truncate" value={marketCapDailys} displayType={'text'} thousandSeparator={true} />
-                                        <NumberFormat className="text-[12px] w-[40%] ml-4 truncate" value={allTimeHigh} displayType={'text'} thousandSeparator={true} />
+                                        <NumberFormat className="text-[12px] w-[40%] ml-16 truncate" value={allTimeHigh} displayType={'text'} thousandSeparator={true} />
                                         <span className="hidden">id</span>
                                     </div>
                                 </div>

@@ -2,6 +2,7 @@ import Head from "next/head"
 import Footer from '../components/footer'
 import DiscoverMenu from "../components/discoveringMenu"
 import MoreNews from '../components/moreNews';
+import BlogComponent from "../components/blogComponent";
 
 const Explore = () => {
 
@@ -15,7 +16,7 @@ const Explore = () => {
 
 
             <DiscoverMenu />
-            <MoreNews />
+            <BlogComponent />
 
             <Footer />
 

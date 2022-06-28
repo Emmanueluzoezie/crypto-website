@@ -1,13 +1,17 @@
 import Head from "next/head"
 import Footer from '../components/footer'
-import { selectCryptoCoins } from "../slices/basketSlice";
+import FavoriteComponent from '../components/favoriteComponent'
+import Navbar from "../components/Navbar"
+import { selectCryptoCoins, selectTotal } from "../slices/basketSlice";
 import { useSelector } from "react-redux";
-import Navbar from "../components/Navbar";
+import { useRouter } from 'next/router'
+
+
 
 const Favorite = () => {
 
   const cryptoCoins = useSelector(selectCryptoCoins)
-  console.log(cryptoCoins)
+  const router = useRouter()
 
       return (
         <div className="bg-inherit dark:bg-gray-800 w-screen h-screen dark:text-gray-100">
@@ -17,7 +21,78 @@ const Favorite = () => {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
+
         <Navbar />
+      <div className="sm:px-10 md:px-5 lg:px-12 px-4  w-inherit">
+          <div className="lg:py-3 hidden lg:flex w-inherit">
+            <div className="flex items-center space-x-2 lg:py-3 relative lg py-2 border-gray-600 w-full font-bold uppercase">
+                <h2 className="absolute top-3 right-2 lg:relative lg:top-0 lg:right-0 w-inherit">Del</h2>
+                <div  className="flex items-center w-[36%] border-black">
+                    <div className="w-full flex items-center">
+                    <div className="flex items-center lg:w-[30%]">
+                        <div className="w-full flex items-center">
+                            <h2 className="flex lg:w-[50%] lg:px-3">#</h2>
+                            <div className="lg:w-[50%] ml-3">
+                                <span className=" w-7 h-7 lg:w-10 lg:h-10">Icon</span> 
+                            </div>
+                        </div>   
+                    </div>
+                    <div className="flex flex-col lg:flex-row lg:w-[70%] lg:items-center ml-6 text-lg font-semibold">
+                            <h1 className="text-[17px] capitalize">Name</h1>
+                            <div className="flex items-center text-xs lg:ml space-x-2">
+                                <span className="font-medium px-1 rounded"></span>
+                            </div>
+                    </div>
+                    </div>
+                </div>
+                <div className="flex w-[55%] space-x-6 px-3">
+                    <div className="w-full flex items-center">
+                        <div className="lg:flex items-center lg:w-[65%] pl-10">
+                            <div className="flex flex-col lg:flex-row w-full items-center">
+                              <h2 className="text-[14px] mr-8 lg:w-[35%] lg:text-[16px]">Price</h2>
+                                <h2 className="flex items-center text-[12px] lg:w-[10%]">%</h2>
+                                <h2 className="text-[10px] lg:text-[12px] lg:w-[40%] px-1 rounded dark:bg-gray-400 dark:text-gray-900 dark:lg:bg-inherit dark:lg:text-inherit ml-5">Market cap</h2>
+                            </div>
+                        </div>
+                        <div className="flex items-center lg:w-[35%]">
+                            <div className="w-full flex text-[14px]">
+                                <h2 className="text-[12px] mx-6 w-[60%]">Market cap 24h</h2>
+                                <h2 className="text-[12px] w-[35%] ml-2">Ath</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+          </div>
+
+        <div className="sm:px-10 md:px-5 lg:px-10 px-4">
+          {cryptoCoins? (cryptoCoins.map((coin, i) => (
+            <FavoriteComponent
+              cryptoCoins={cryptoCoins}
+              key={i}
+              id={coin.id}
+              name={coin.name}
+              marketCapDaily={coin.marketCapDaily}
+              price={coin.price}
+              marketCap={coin.marketCap}
+              rank={coin.rank}
+              image={coin.image}
+              percent={coin.percent}
+              coinSymbol={coin.coinSymbol}
+              allTimeHigh={coin.allTimeHigh}
+              
+              /> 
+              ))) : ("")}
+        </div>
+        <div className="pb-32">
+          <h2 className="cursor-pointer text-green-100 font-semibold text-xl mt-10" > .</h2>
+      </div>
+        <div className="position fixed bottom-20 md:bottom-[14%] w-full text-center p-3 ">
+            <button className="bg-green-600 text-white rounded-xl dark:bg-gray-700 py-2 font-bold text-xl md:w-[60%] w-[85%] " onClick={() => router.push("/addFavoritePage")}>Add Favorite coin</button>
+        </div>
+
+        
         <Footer />
 
     </div>

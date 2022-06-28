@@ -14,7 +14,7 @@ function NewsFeed (){
     if (error) <p>Loading failed...</p>;
 
     return(
-        <div className="px-4 mb-24 mt-3 h-inherit bg-inherit dark:bg-gray-900 dark:text-gray-200 md:px-16">
+        <div className="px-4 mb-24 md:mb-32 mt-3 h-inherit bg-inherit dark:bg-gray-900 dark:text-gray-200 md:px-16">
             <div className="flex justify-between">
                 <h1 className="font-semibold sm:font-bold text-xl sm:text-2xl ml-2 ">News</h1>
                 <span className="font-semibold sm:font-bold text-lg sm:text-xl mr-2 " onClick={() => router('/moreNews')}>More</span>

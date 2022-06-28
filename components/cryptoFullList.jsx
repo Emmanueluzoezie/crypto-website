@@ -56,7 +56,7 @@ const CryproList = () => {
                         </div>
                         <div className="flex items-center lg:w-[35%]">
                             <div className="w-full flex text-[14px]">
-                                <h2 className="text-[12px] mx-6 w-[75%]">Market cap 24h</h2>
+                                <h2 className="text-[12px] mx-2 w-[75%]">Market cap 24h</h2>
                                 <h2 className="text-[12px] w-[15%] ml-2">Ath</h2>
                             </div>
                         </div>
@@ -87,17 +87,17 @@ const CryproList = () => {
                     <Loader />
                 )} 
           </div>
-          <div className="mb-32 md:mb-24">
-            <Pagination
-            count={(data?.length / 10).toFixed(0)}
-            className="p-10 w-inherit flex justify-center font-bold"
-            shape="rounded"
-            
-            onChange={(_, value) => {
-                setPage(value)
-            }}
-            />
-          </div>
+          <div className="mb-28 pb-10 mt-6 lg:pb-20">
+                <Pagination
+                    count={data && data?.length}
+                    className="pb-10 w-inherit flex justify-center"
+                    shape="rounded"
+                    
+                    onChange={(_, value) => {
+                        setPage(value)
+                    }}
+                />
+            </div>
     </div>
   )
 }
