@@ -4,6 +4,8 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import { CryptoState } from "../context/cryptoContext"
 import { useContext } from "react";
+import { useRouter } from 'next/router';
+
 
 
 function SearchList ({name, image, rank, coinSymbol, id, percent, price}){
@@ -12,6 +14,7 @@ function SearchList ({name, image, rank, coinSymbol, id, percent, price}){
     const { symbol, currency } = useContext(CryptoState)
     let prices = Number(price).toFixed(2)
     let percents = Number(percent).toFixed(3)
+    const router = useRouter()
 
     function getStatusText(change){
         if(change < 0){
@@ -23,12 +26,12 @@ function SearchList ({name, image, rank, coinSymbol, id, percent, price}){
     }
 
     return(
-        <div className="cursor-pointer shadow-2xl flex w-inherit rounded-2xl my-3 bg-inherit dark:text-white">
+        <div className="cursor-pointer shadow-2xl flex w-inherit rounded-2xl my-3 bg-inherit dark:text-white" onClick={() => router.push(`/${id}`)}>
                 <div className="flex items-center py-3 px-2 w-full">
                     <div className="flex w-[45%] items-center">
                        <div className="flex items-center">
                         <Avatar src={image} className="w-8 h-8 mr-4 text-[10px] bg-gray-500" />
-                        <div className="flex flex-col">
+                        <div className="flex flex-col"  >
                             <p className="font-bold text-sm sm:text-xl">{name}</p>
                             <div className="text-xs text-center font-semibold">
                                 <p className="bg-gray-300 dark:bg-inherit">{coinSymbol}</p>

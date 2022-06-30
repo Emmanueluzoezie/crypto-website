@@ -22,7 +22,7 @@ function SeachTrending() {
 
 
   return (
-    <div className="w-inherit dark:bg-gray-900 bg-green-100">
+    <div className="w-inherit dark:bg-gray-900 bg-inherit">
       <div className="p-3 mt-3 mx-2 md:mx-16 w-inherit">
            <div className="flex justify-between items-center mb-3 font-bold text-lg sm:text-2xl dark:text-white">
                  <h1 className="uppercase">Trending coins</h1>

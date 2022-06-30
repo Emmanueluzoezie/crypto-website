@@ -87,7 +87,7 @@ const CryproList = () => {
                     <Loader />
                 )} 
           </div>
-          <div className="mb-28 pb-10 mt-6 lg:pb-20">
+          <div className="mb-14 pb-16 mt-6 lg:pb-20">
                 <Pagination
                     count={data && data?.length}
                     className="pb-10 w-inherit flex justify-center"

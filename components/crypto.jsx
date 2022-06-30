@@ -24,7 +24,7 @@ function Crypto ({ name, image, price, percent, id}){
      }
 
     return(
-      <div className="flex space-x-3 cursor-pointer">
+      <div className="flex space-x-3 cursor-pointer" onClick={() => router.push(`/${id}`)}>
             <div className="flex flex-col my-3 w-28 sm:w-36 sm:h-36 h-32 pt-4 rounded-2xl bg-white shadow-2xl text-center cursor-pointer">
                 <Avatar alt={name} className="mx-auto w-6 sm:w-10 h-6 sm:h-10"  src={image}/>
                 <div>

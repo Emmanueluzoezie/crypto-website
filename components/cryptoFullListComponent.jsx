@@ -7,10 +7,12 @@ import { CryptoState } from "../context/cryptoContext"
 import { useContext } from "react";
 import { useDispatch } from 'react-redux';
 import { addToBasket } from '../slices/basketSlice';
+import {useRouter} from "next/router"
 
 
 function FullCryptoListComponent ({name, id, rank, allTimeHigh, marketCapDaily, image, price, marketCap, coinSymbol, percent}){
 
+    const router = useRouter()
     const { symbol } = useContext(CryptoState)
     let prices = Number(price).toFixed(2)
     let marketCapDailys = Number(marketCapDaily).toFixed(3) 
@@ -49,17 +51,17 @@ function FullCryptoListComponent ({name, id, rank, allTimeHigh, marketCapDaily, 
         <div className="lg:py-1 cursor-pointer">
                 <div className="flex items-center space-x-2 lg:py-3 relative border-b-2 lg py-2 pl-4 md:pl-2 dark:text-white dark:border-gray-600 border-gray-300 cursor-pointer">
                 <StarBorderIcon onClick={addItemToBasket} className={`absolute top-3 right-0 lg:relative lg:top-0 lg:right-0 cursor-pointer `} />
-                        <div  className="flex items-center w-[40%] lg:w-[37%]">
+                        <div  className="flex items-center w-[40%] lg:w-[37%]" onClick={() => router.push(`/${id}`)}>
                         <div className="w-full flex items-center">
                             <div className="flex items-center lg:w-[30%]">
                                 <div className="w-full flex items-center">
                                     <h2 className="hidden lg:flex font-bold lg:w-[50%] lg:px-3">{rank}</h2>
                                     <div className="lg:w-[50%] ml-3">
-                                        <Avatar src={image} className=" w-7 h-7 lg:w-10 lg:h-10"/> 
+                                        <Avatar src={image} className=" w-7 h-7 md:w-10 md:h-10"/> 
                                     </div>
                                 </div>   
                             </div>
-                            <div className="flex flex-col lg:flex-row lg:w-[70%] lg:items-center ml-3 text-lg font-semibold">
+                            <div className="flex flex-col lg:flex-row lg:w-[70%] lg:items-center ml-3 text-[14px] font-semibold">
                                     <h1 className="text-[15px] capitalize md:text-[18px] font-bold truncate">{name}</h1>
                                     <div className="flex items-center text-xs lg:ml space-x-2">
                                         <h2 className="lg:hidden px-1 bg-green-100 py-[2px] rounded font-bold dark:bg-gray-400 text-gray-900">{rank}</h2>
@@ -68,7 +70,7 @@ function FullCryptoListComponent ({name, id, rank, allTimeHigh, marketCapDaily, 
                             </div>
                         </div>
                         </div>
-                        <div className="flex w-[60%] space-x-6 px-3">
+                        <div className="flex w-[60%] space-x-6 px-3" onClick={() => router.push(`/${id}`)} >
                             <div className="w-full flex items-center justify-between pr-10">
                             <div className="w-[35%] text-[14px] font-bold text-center lg:hidden" style={{ color:getStatusText(percents)}}>
                                     {percents < 0? (<ArrowDropDownIcon />) : (<ArrowDropUpIcon />)}
@@ -77,7 +79,7 @@ function FullCryptoListComponent ({name, id, rank, allTimeHigh, marketCapDaily, 
                                 <div className="lg:flex items-center lg:w-[60%]">
                                     <div className="flex flex-col lg:flex-row w-full items-center">
                                         <NumberFormat className="text-[14px] lg:w-[35%] lg:text-[16px] font-bold" value={prices} displayType={'text'} thousandSeparator={true} prefix={symbol}  />
-                                        <div className="hidden sm:flex items-center text-[12px] lg:w-[20%] font-bold" style={{ color:getStatusText(percents)}}>
+                                        <div className="hidden lg:flex items-center text-[12px] lg:w-[20%] font-bold" style={{ color:getStatusText(percents)}}>
                                             {percents < 0? (<ArrowDropDownIcon />) : (<ArrowDropUpIcon />)}
                                             <h1>{percents}</h1>
                                         </div>

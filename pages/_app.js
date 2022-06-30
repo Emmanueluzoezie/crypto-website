@@ -3,6 +3,7 @@ import Head from "next/head"
 import { Provider } from "react-redux"
 import {CryptoContext} from "../context/cryptoContext"
 import { store } from '../app/store'
+import { UserProvider } from '@auth0/nextjs-auth0'
  
 
 function MyApp({ Component, pageProps }) {
@@ -15,11 +16,13 @@ function MyApp({ Component, pageProps }) {
 
 
 
-        <Provider store={store}>
-          <CryptoContext>
-            <Component {...pageProps} />
-          </CryptoContext> 
-        </Provider>
+    <UserProvider>
+      <Provider store={store}>
+        <CryptoContext>
+          <Component {...pageProps} />
+        </CryptoContext>
+      </Provider>
+    </UserProvider>  
     
     </>
     )
